@@ -1,0 +1,55 @@
+#TASK TO APPEND CURRENT DATE TO ALL THE FILES WITH EXTENSION AS LOG
+$ nano assignment1.sh
+ #!/bin/bash -x
+ for file in `ls *.log.1`
+ do
+        folderName=`echo $file | awk -F. '{print $1}'`
+        date +%d%m%Y
+        touch $folderName-"`date +"%d%m%Y"`"".log"
+ done
+
+$ ./assignment1.sh
+++ ls abc.log.1 def.log.1 ghi.log.1 jkl.log.1 mno.log.1
++ for file in `ls *.log.1`
+++ echo abc.log.1
+++ awk -F. '{print $1}'
++ folderName=abc
++ date +%d%m%Y
+05082021
+++ date +%d%m%Y
++ touch abc-05082021.log
++ for file in `ls *.log.1`
+++ echo def.log.1
+++ awk -F. '{print $1}'
++ folderName=def
++ date +%d%m%Y
+05082021
+++ date +%d%m%Y
++ touch def-05082021.log
++ for file in `ls *.log.1`
+++ echo ghi.log.1
+++ awk -F. '{print $1}'
++ folderName=ghi
++ date +%d%m%Y
+05082021
+++ date +%d%m%Y
++ touch ghi-05082021.log
++ for file in `ls *.log.1`
+++ echo jkl.log.1
+++ awk -F. '{print $1}'
++ folderName=jkl
++ date +%d%m%Y
+05082021
+++ date +%d%m%Y
++ touch jkl-05082021.log
++ for file in `ls *.log.1`
+++ echo mno.log.1
+++ awk -F. '{print $1}'
++ folderName=mno
++ date +%d%m%Y
+05082021
+++ date +%d%m%Y
++ touch mno-05082021.log
+
+$ ls *.log
+abc-05082021.log  def-05082021.log  ghi-05082021.log  jkl-05082021.log  mno-05082021.log

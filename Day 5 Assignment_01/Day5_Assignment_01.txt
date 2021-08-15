@@ -1,0 +1,55 @@
+
+                                              ############### Sequences Practice Problems ##################
+                                                              ###########################
+
+
+Que. 1. Use Random Function (( RANDOM )) to get Single Digit
+	echo $(( RANDOM % 10 ))
+
+Que. 2. Use Random to get Dice Number between 1 to 6
+	echo $(( ( RANDOM % 6 )  + 1 ))
+
+Que. 3. Add two Random Dice Number and Print the Result
+	a=$(( RANDOM % 6) + 1 )
+	b=$(( RANDOM % 6) + 1 )
+	echo $((a + b))
+
+Que. 4. Write a program that reads 5 Random 2 Digit values , then find their sum and the average
+	#! /bin/bash -x
+	num1=$(( ( RANDOM % 90 )  + 10 ))
+	num2=$(( ( RANDOM % 90 )  + 10 ))
+	num3=$(( ( RANDOM % 90 )  + 10 ))
+	num4=$(( ( RANDOM % 90 )  + 10 ))
+	num5=$(( ( RANDOM % 90 )  + 10 ))
+	sum=$(( num1 + num2 + num3 + num4 + num5 ))
+	echo $sum
+	Avg=$((sum/5))
+	echo $Avg
+
+5. Unit Conversion
+   
+   a). 1ft = 12 in then 42 in = ? ft
+	#! /bin/bash
+	NUM1=12
+	NUM2=42
+	result=$(echo "scale=1; $NUM2/$NUM1" | bc -l)
+	echo $result
+
+   b). Rectangular Plot of 60 feet x 40 feet in meters
+	#! /bin/bash -x
+	OneFeet_into_meter=0.3047
+	NUM1=60
+	NUM2=40
+	Feet_60_into_Meter=$(echo "$OneFeet_into_meter * $NUM1" | bc -l)
+	Feet_40_into_Meter=$(echo "$OneFeet_into_meter * $NUM2" | bc -l)
+	echo "60 feet x 40 feet in meters=$Feet_60_into_Meter x $Feet_40_into_Meter"
+	
+   c). Calculate area of 25 such plots in acres
+	#! /bin/bash
+	OneFeet_into_meter=0.3047
+	NUM1=60
+	NUM2=40
+	Feet_60_into_Meter=$(echo "$OneFeet_into_meter * $NUM1" | bc -l)
+	Feet_40_into_Meter=$(echo "$OneFeet_into_meter * $NUM2" | bc -l)
+	Area_In_Square_Meter=$(echo "25 * $Feet_60_into_Meter * $Feet_40_into_Meter" | bc -l)
+	echo "Area of a plot:" $Area_In_Square_Meter

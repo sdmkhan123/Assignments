@@ -1,0 +1,48 @@
+Que. 1. Roll a die and Find the number that reached maximum times and the one that was for minimum times
+	#! /bin/bash -x
+	declare -A die
+	DiceNum=0
+	ValueCount=0
+	while [ $ValueCount -lt 10 ]
+	do
+		DiceNum=$(( (RANDOM % 6) + 1 ))
+		ValueCount=${die[$DiceNum]}
+		ValueCount=$((ValueCount + 1))
+		die[$DiceNum]=$ValueCount
+	done
+	min=10
+	index=0
+	for (( i=1; i<7; i++ ))
+	do
+		num=${die[$i]}
+		if [ $num -lt $min ]
+		then
+			min=$num
+			index=$i
+		fi
+	done
+	echo "dice number $index get minimum value $min"
+	echo "$DiceNum value reaches to max :" ${die[$DiceNum]}
+	echo "at given keys are : " ${!die[*]}
+	echo "count value for every number : "${die[*]}
+
+Que. 2. Write a Program to generate a birth month of 50 individuals between the year 92 & 93. Find all the individuals 
+	having birthdays in the same month. Store it to finally print.
+	
+	#! /bin/bash -x
+	declare -A BirthMonth
+	for (( i=0; i<50; i++ ))
+	do
+		monthNum=$(( (RANDOM % 12) + 1 ))
+		ValueCount=${BirthMonth[$monthNum]}
+		ValueCount=$((ValueCount + 1))
+		BirthMonth[$monthNum]=$ValueCount
+	done
+
+	for (( i=1; i<13; i++ ))
+	do
+		echo "In the Month $i having ${BirthMonth[$i]} individual Birth"
+	done
+	#echo ${!BirthMonth[*]}
+	#echo ${BirthMonth[*]}
+	

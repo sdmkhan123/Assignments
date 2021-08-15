@@ -1,0 +1,42 @@
+Que. 1. Read a single digit number and write the number in word using Case
+	#! /bin/bash -x
+	read num
+	case $num in
+		1) echo "One";;
+		2) echo "Two";;
+		3) echo "Three";;
+		4) echo "Four";;
+		5) echo "Five";;
+		6) echo "Six";;
+		7) echo "Seven";;
+		8) echo "Eight";;
+		9) echo "Nine";;
+		0) echo "Zero";;
+		*) echo "wrong input"
+	esac
+
+Que. 2. Read a Number and Display the week day (Sunday, Monday,...)
+	#! /bin/bash -x
+	read num
+	case $num in
+		1) echo "Sunday";;
+		2) echo "Monday";;
+		3) echo "Tuesday";;
+		4) echo "Wednesday";;
+		5) echo "Thursday";;
+		6) echo "Friday";;
+		7) echo "Saturday";;
+		*) echo "wrong input
+	esac
+
+Que. 3. Read a Number 1, 10, 100, 1000, etc and display unit, ten, hundred,...
+	#! /bin/bash -x
+	read num
+	case $num in
+		1) echo "Unit";;
+		10) echo "Ten";;
+		100) echo "Hundred";;
+		1000) echo "Thousand";;
+		*) echo "wrong input"
+	esac
+	

@@ -1,0 +1,64 @@
+Que. 1. Write a program that takes a command-line argument n and prints a table of the powers of 2 that are
+	less than or equal to 2^n till 256 is reached..
+
+	#! /bin/bash
+	Power=1
+	read -p "Enter an argument:" n
+	num=1
+	MAX_value=255
+	while [ $num -le $n ] && [ $Power -le $MAX_value ]
+	do
+		Power=$(( Power * 2 ))
+		echo $Power
+		((num++))
+	done
+	
+Que. 2. Find the Magic Number
+	#! /bin/bash -x
+	
+
+
+Que. 3. Extend the Flip Coin problem till either Heads or Tails wins 11 times.
+	#! /bin/bash -x
+	MAX_COUNT=11
+	HeadCount=0
+	TailCount=0
+	HEAD=1
+	while [ $HeadCount -lt $MAX_COUNT -a $TailCount -lt $MAX_COUNT ]
+	do
+		flipcoin=$((RANDOM%2))
+		if [ $flipcoin -eq $HEAD ]
+		then
+		        ((HeadCount++))
+		else
+		        ((TailCount++))
+		fi
+	done
+	echo "Number of Head count :" $HeadCount
+	echo Number of Tail count :" $TailCount
+
+Que. 4. Write a Program where a gambler starts with Rs 100 and places Re 1 bet until he/she goes broke i.e. 
+	no more money to gamble or reaches the goal
+	#! ?bin/bash -x
+	win=1
+	winAmt=1
+	winCount=0
+	loseCount=0
+	loseAmt=1
+	stake=100
+	while [ $stake -ne 200 -a $stake -ne 0 ]
+	do
+		betCheck=$((RANDOM%2))
+		        if [ $betCheck -eq $win ]
+		        then
+		                stake=$(( $stake + $winAmt ))
+		                winCount=$(( $winCount + 1))
+		        else
+		                stake=$(( $stake - $loseAmt))
+		                loseCount=$(( $loseCount + 1 ))
+		        fi
+	done
+	echo "The number of times gambler won = $winCount"
+	echo "The total number of bets made = $((winCount + loseCount))"
+
+

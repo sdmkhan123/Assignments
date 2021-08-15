@@ -1,0 +1,89 @@
+Que. 1. Write a program that takes a command-line argument n and prints a table of the powers of 2 that are less than or equal to 2^n.
+	#! /bin/bash -x
+	Power=1
+	read -p "Enter an argument:" n
+	for (( num=1; num<=n; num++ ))
+	do
+		Power=$(( Power * 2 ))
+		echo $Power
+	done
+
+Que. 2. Write a program that takes a command-line argument n and prints the nth harmonic number.
+	#! /bin/bash -x
+	read -p "Enter term num: " n
+	First_Term=0
+	for (( num=1; num<=n; num++ ))
+	do
+		First_Term=$(( First_Term + 1 ))
+	done
+	echo "1/$First_Term"
+
+Que. 3. Write a program that takes a input and determines if the number is a prime.
+	#! /bin/bash -x
+	flag=0
+	read -p "Enter a num:" n
+	for (( num=2; num<n/2; num++ ))
+	do
+		if [ $((n % num )) -eq 0 ]
+		then
+		        flag=1
+		fi
+	done
+	if [ $flag -eq 1 ]
+	then
+		echo "Not Prime"
+	else
+		echo "Prime"
+	fi
+	
+Que. 4. Extend the program to take a range of number as input and output the Prime Numbers in that range.
+	#! /bin/bash -x
+	read -p "Enter a starting range:" m
+	read -p "Enter a ending range:" n
+	for (( i=m; i<=n; i++ ))
+	do
+		flag=0
+		for (( num=2; num<i/2; num++ ))
+		do
+		        if [ $((i % num )) -eq 0 ]
+		        then
+		                flag=1
+		        fi
+		done
+		if [ $flag -eq 0 ]
+		then
+		        echo "$i"
+		fi
+	done
+
+Que. 5. Write a program that computes a factorial of a number taken as input.
+	#! /bin/bash -x
+	read -p "enter a num: " n
+	fact=1
+	for (( num=1; num<=n; num++ ))
+	do
+		fact=$(( fact * num ))
+	done
+	if [ $n -ge 0 ]
+	then
+		echo "factorial of a num is: " $fact
+	else
+		echo "Not Possible"
+	fi
+
+Que. 6. Write a program to compute Factors of a number N using prime factorization method.
+	#!/bin/bash -x
+	read -p ":" num
+	
+	#to get square root of a number :- c=$( echo $num | awk '{ print sqrt($num) }' )
+	#convert a float number into integer :- n=${c%.*}
+	
+	for (( i=2; i<=num; i++ ))
+	do
+		while [ $((num%$i)) == 0 ]
+		do
+		        echo $i
+		        num=$((num/$i))
+		done
+	done
+

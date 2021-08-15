@@ -1,0 +1,57 @@
+Que. 
+	a). cat /etc/passwd
+	b). cat /etc/passwd | head -1
+	
+Que. COPYING OF FILES TO THEIR RESPECTIVE FOLDERS
+	 #!/bin/bash -x
+	 for file in `ls *.txt`
+	 do
+	 folderName=`echo $file | awk -F. '{print$1}'`
+	 if [ -d $folderName ]
+	 	then
+	       rm -r $folderName
+	 fi
+	 mkdir $folderName
+	 cp $file $folderName
+	done
+	
+	
+Que. Data Ananlysis / Manupulation (awk)
+
+#TASK NO - 01
+	cat data.csv | awk '{if($4 > 10000) {print $2 " " $ 7}}'
+	EmployeeName TotalPay
+	NATHANIEL 567595
+	GARY 538909
+	ALBERT 335279
+	CHRISTOPHER 332343
+	PATRICK 326373
+	DAVID 316285
+	ALSON 315981
+	DAVID 307899
+	JOANNE 302377
+	PATRICIA 297608
+	EDWARD 294580
+	
+#TASK NO - 02
+	cat data.csv | grep -i captain | awk '{sum = sum + $7} END{print "aggregate of all whose job title is CAPTAIN = " sum}'
+	aggregate of all whose job title is CAPTAIN = 1171796
+
+#TASK NO - 03
+	cat data.csv | awk '{if($5 > 7000 && $5 < 10000) {print $3 " " $5}}'
+	DEPUTYCHIEF 9737
+	ASSTDEPUTY 8601
+
+#TASK NO - 04
+	cat data.csv | awk '{sum = sum + $4} END{print "The average BasePay = " sum/NR}'
+	The average BasePay = 157972
+	
+Que. TASK TO APPEND CURRENT DATE TO ALL THE FILES WITH EXTENSION AS LOG
+	$ nano assignment1.sh
+	 #!/bin/bash -x
+	 for file in `ls *.log.1`
+	 do
+		folderName=`echo $file | awk -F. '{print $1}'`
+		date +%d%m%Y
+		touch $folderName-"`date +"%d%m%Y"`"".log"
+	 done

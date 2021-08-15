@@ -1,0 +1,62 @@
+#COPYING OF FILES TO THEIR RESPECTIVE FOLDERS
+
+$ nano assignment.sh
+ #!/bin/bash -x
+ for file in `ls *.txt`
+ do
+ folderName=`echo $file | awk -F. '{print$1}'`
+ if [ -d $folderName ]
+ 	then
+       rm -r $folderName
+ fi
+ mkdir $folderName
+ cp $file $folderName
+done
+
+$ ./assignment.sh
+++ ls abc.txt def.txt ghi.txt jkl.txt
++ for file in `ls *.txt`
+++ echo abc.txt
+++ awk -F. '{print$1}'
++ folderName=abc
++ '[' -d abc ']'
++ rm -r abc
++ mkdir abc
++ cp abc.txt abc
++ for file in `ls *.txt`
+++ echo def.txt
+++ awk -F. '{print$1}'
++ folderName=def
++ '[' -d def ']'
++ rm -r def
++ mkdir def
++ cp def.txt def
++ for file in `ls *.txt`
+++ echo ghi.txt
+++ awk -F. '{print$1}'
++ folderName=ghi
++ '[' -d ghi ']'
++ rm -r ghi
++ mkdir ghi
++ cp ghi.txt ghi
++ for file in `ls *.txt`
+++ echo jkl.txt
+++ awk -F. '{print$1}'
++ folderName=jkl
++ '[' -d jkl ']'
++ rm -r jkl
++ mkdir jkl
++ cp jkl.txt jkl
+
+$ ls abc def ghi jkl
+abc:
+abc.txt
+
+def:
+def.txt
+
+ghi:
+ghi.txt
+
+jkl:
+jkl.txt

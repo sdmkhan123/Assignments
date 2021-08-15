@@ -1,0 +1,114 @@
+Que. 1. Read a single digit number and write the number in word
+	#! /bin/bash -x
+
+	read num
+	if [ $num -eq 1 ]
+	then
+		echo "ONE"
+	elif [ $num -eq 2 ]
+	then
+		echo "TWO"
+	elif [ $num -eq 3 ]
+	then
+		echo "THREE"
+	elif [ $num -eq 4 ]
+	then
+		echo "FOUR"
+	elif [ $num -eq 5 ]
+	then
+		echo "FIVE"
+	elif [ $num -eq 6 ]
+	then
+		echo "SIX"
+	elif [ $num -eq 7 ]
+	then
+		echo "SEVEN"
+	elif [ $num -eq 8 ]
+	then
+		echo "EIGHT"
+	elif [ $num -eq 9 ]
+	then
+		echo "NINE"
+	else
+		echo "ERROR"
+	fi
+
+Que. 2. Read a Number and Display the week day (Sunday, Monday,...)
+	#! /bin/bash -x
+
+	read num
+	if [ $num -eq 1 ]
+	then
+		echo "SUNDAY"
+	elif [ $num -eq 2 ]
+	then
+		echo "MONDAY"
+	elif [ $num -eq 3 ]
+	then
+		echo "TUESDAY"
+	elif [ $num -eq 4 ]
+	then
+		echo "WEDNESDAY"
+	elif [ $num -eq 5 ]
+	then
+		echo "THURSDAY"
+	elif [ $num -eq 6 ]
+	then
+		echo "FRIDAY"
+	elif [ $num -eq 7 ]
+	then
+		echo "SATURDAY"
+	else
+		echo "ERROR"
+	fi
+
+Que. 3. Read a Number 1, 10, 100, 1000, etc and display unit, ten, hundred
+	#! /bin/bash -x
+
+	read num
+	if [ $num -eq 1 ]
+	then
+		echo "UNIT"
+	elif [ $num -eq 10 ]
+	then
+		echo "TEN"
+	elif [ $num -eq 100 ]
+	then
+		echo "HUNDRED"
+	elif [ $num -eq 1000 ]
+	then
+		echo "THOUSAND"
+	else
+		echo "ERROR"
+	fi
+	
+Que. 4. Enter 3 Numbers do following arithmetic operation and find the one that is maximum and minimum
+	#! /bin/bash -x
+	read a
+	read b
+	read c
+	max=$( echo $a $b $c | awk '{print $1+$2*$3}')
+	min=$( echo $a $b $c | awk '{print $1+$2*$3}')
+	num2=$( echo $c $a $b | awk '{print $1+$2/$3}')
+	num3=$( echo $a $b $c | awk '{print $1%$2+$3}')
+	num4=$( echo $a $b $c | awk '{print $1*$2+$3}')
+	if [ $num2 -gt $max ]
+	then
+		max=$num2
+	fi
+	if [ $num3 -gt $max ]
+	then
+		max=$num3
+	fi
+	if [ $num4 -gt $max ]
+	then
+		max=$num4
+	fi
+	echo max
+
+
+		
+	
+	
+	
+	

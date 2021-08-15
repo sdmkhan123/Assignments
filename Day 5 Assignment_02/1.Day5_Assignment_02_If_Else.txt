@@ -1,0 +1,58 @@
+Que1. Write a program that reads 5 Random 3 Digit values and then outputs the minimum and the maximum value
+
+	#! /bin/bash
+	num=5
+	min=1000
+	max=99
+	for (( i=0; i<5; i++ ))
+	do
+	     num=$(( ( RANDOM % 900 )  + 100 ))
+	     if [[ $num -gt $max ]]
+	     then
+		max="$num"
+	     fi
+	     
+	     if [[ $num -lt $min ]]
+	     then
+		min="$num"
+	     fi
+	done
+	echo $min $max
+	
+Que. 2. Write a program that takes day and month from the command line and prints true if day of month is between March 20 and June 20,
+        false otherwise.
+        
+        #! /bin/bash
+        read -p day
+        read -p Month
+        if (( ($Month <= 6 && $day <= 20) && (($Month >= 3 && $day <= 20) && ($day<31)) ))
+        then
+        	echo $Month $date "True";
+        else
+
+        	echo "False";
+        fi
+
+Que. 3. Write a program that takes a year as input and outputs the Year is a Leap Year or not a Leap Year. A Leap Year checks for 4 Digit Number, 	Divisible by 4 and not 100 unless divisible by 400.
+	#! /bin/bash
+	read -p year
+	a=$(( year % 4 ))
+	b=$(( year % 100 ))
+	c=$(( year % 400 ))
+	if [ $a -eq 0 ] && [ $b -ne 0 ] || [ $c -eq 0 ]
+	then
+		echo "This is Leap Year"
+	else
+		echo "Not a Leap Year"
+	fi
+
+Que. 4. Write a program to simulate a coin flip and print out "Heads" or "Tails" accordingly.
+	#! /bin/bash -x
+
+	Flip_Coin=$((RANDOM%2))
+	if [ $Flip_Coin -eq 1 ]
+	then
+		echo "Heads"
+	else
+		echo "Tails"
+	fi
